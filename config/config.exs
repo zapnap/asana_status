@@ -15,6 +15,9 @@ config :asana_status, AsanaStatus.Endpoint,
   secret_key_base: "FazmAK5a+lo261N4mls+CdYvKrAVF+K0mfcrffo/GhdNiNTOsv9xTIe76ZOyz6ay",
   debug_errors: false
 
+# Application configuration
+config :asana_status, :asana_api_key, System.get_env("ASANA_API_KEY")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
