@@ -42,8 +42,10 @@ Want to deploy this to [Heroku](http://heroku.com)?
 
 If something doesn't seem to be working, tail the Heroku logs for clues. If you're still SOL, open an issue on this project and I'll try to help you.
 
-Credits
--------
+Notes
+-----
 
-Developed by Nick Plante as an excuse to mess around with Elixir and Phoenix.
 This work was originally inspired by Nick Sheck's [Asana StatusBoard](https://github.com/sheck/asana-statusboard) (Sinatra) project.
+I rewrote it in Elixir and added a few features mostly as an excuse to play around with Phoenix.
+There's definitely some optimization to be done and I'm sure I've bungled a few idioms.
+Also needs some tests.
