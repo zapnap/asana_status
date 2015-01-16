@@ -6,28 +6,44 @@ AsanaStatus
 How it works
 ------------
 
-The app grabs all projects from a specific workspace id and their project description. We treat the description as the overall status of the project. The app color codes the project based on keywords found in the description.
+The simple utility app grabs all active projects from a specific Asana workspace.
+We use the project description as the overall status of the project for now.
+The app color codes the project based on keywords found in the description.
 
 **Current Keywords:** queued, on hold, done, to print, waiting, proofed, comps sent
 
 Usage
 -----
 
-Add your Asana API key to +config/prod.exs+ (or +config/dev.exs+ for local testing):
-
-    config :asana_status, :asana_api_key, "my-api-key"
-
-To start your application:
+To start the app locally, you'll need Elixir on your system.
 
 1. Install dependencies with `mix deps.get`
-2. Start Phoenix endpoint with `mix phoenix.server`
+2. Start Phoenix endpoint with `ASANA_API_KEY=[your-api-key] foreman start`
 
 Now you can visit `http://localhost:4000/status/[your-workspace-id]` from your browser to see the formatted project status results.
 
-To get this working in production, you'll want to add a new Table Widget to StatusBoard pointing to the production version of this URL.
+Deployment
+----------
+
+Want to deploy this to [Heroku](http://heroku.com)?
+
+1. Create a Heroku application with a custom buildpack:
+
+    heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+
+2. Set the required environment variables:
+
+    heroku config:set MIX_ENV=prod
+    heroku config:set ASANA_API_KEY=[your-api-key]
+
+3. Push the application to Heroku (`git push heroku master`)
+4. Try hitting the endpoint at `http://your-heroku-endpoint.herokuapp.com/status/[your-workspace-id]`
+5. If everything seems to be working, add a new Table Widget in StatusBoard with the above URL
+
+If something doesn't seem to be working, tail the Heroku logs for clues. If you're still SOL, open an issue on this project and I'll try to help you.
 
 Credits
 -------
 
 Developed by Nick Plante as an excuse to mess around with Elixir and Phoenix.
-This work was originally inspired by Nick Sheck's [Asana StatusBoard](https://github.com/sheck/asana-statusboard) project.
+This work was originally inspired by Nick Sheck's [Asana StatusBoard](https://github.com/sheck/asana-statusboard) (Sinatra) project.
