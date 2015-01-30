@@ -6,7 +6,7 @@
   .projectStatus .icon.p1 { background-color: rgb(0, 186, 0); box-shadow: 0 0 10px rgb(0, 186, 0); }
   .projectStatus .icon.p2 { background-color: rgb(255, 198, 0); box-shadow: 0 0 10px rgb(255, 198, 0); }
   .projectStatus .icon.p3 { background-color: rgb(0, 108, 230); box-shadow: 0 0 10px rgb(0, 108, 230); }
-  .projectStatus .projectName, .projectStatus .projectNotes { padding-top: 7px; }
+  .projectName, .projectNotes { padding-top: 7px; }
 </style>
 
 <table class="statusBoard">
